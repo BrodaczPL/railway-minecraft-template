@@ -12,9 +12,7 @@ RUN bun build ./src/index.ts --compile --outfile=server
 
 FROM itzg/minecraft-server:latest
 
-ENV 
-CONTROL_PORT=3000
-VERSION: "1.21"
+ENV CONTROL_PORT=3000
 WORKDIR /app
 COPY --from=builder /build/server ./server
 COPY docker/start.sh /app/docker/start.sh
